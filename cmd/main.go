@@ -18,4 +18,6 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println(text)
+
+	gosseract.OcrImage("./test.png")
 }

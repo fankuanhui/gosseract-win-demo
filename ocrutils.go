@@ -1,18 +1,17 @@
-package goocr
+package gosseract
 
 import (
 	"fmt"
-	"github.com/fankuanhui/gosseract-win-demo"
 	"log"
 )
 
 func OcrImage(imagePath string) {
-	log.Println(gosseract.Version())
-	client := gosseract.NewClient()
+	log.Println(Version())
+	client := NewClient()
 	defer client.Close()
 	client.SetImage(imagePath)
 	client.SetLanguage("eng")
-	client.SetPageSegMode(gosseract.PSM_SINGLE_BLOCK)
+	client.SetPageSegMode(PSM_SINGLE_BLOCK)
 	text, err := client.Text()
 	if err != nil {
 		log.Fatal(err)
